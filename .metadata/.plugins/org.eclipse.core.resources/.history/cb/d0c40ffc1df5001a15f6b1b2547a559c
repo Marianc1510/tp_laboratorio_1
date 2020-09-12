@@ -1,0 +1,14 @@
+/*
+ * utn.h
+ *
+ *  Created on: 3 sep. 2020
+ *      Author: mariana
+ */
+
+#ifndef UTN_H_
+#define UTN_H_
+
+int utn_getNumero(char* msg,char* msgError,int* pResultado,int reintentos,int min,int max);
+int utn_getNumeroFloat(float* pResultado, int min, int max, char* mensaje, char* mensajeError, int reintentos);
+int utn_getChar(int* pResultado, char min, char max, char* mensaje, char* mensajeError, int reintentos);
+#endif /* UTN_H_ */

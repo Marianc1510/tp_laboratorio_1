@@ -1,0 +1,196 @@
+/*
+ * utn.c
+ *
+ *  Created on: 3 sep. 2020
+ *      Author: mariana
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+
+/*
+ *\brief utn_getNumero : Pide al usuario un numero entero
+ *\param int* pResultado: Direccion de memoria de la variable donde escribe el valor ingresado por el usuario 3)
+ *\param int min: valor minimo admitido(inclusive)
+ *\param int max: valor maximo admitido (no inclusive)
+ *\param char* msg: El mensaje que imprime para pedir un valor 1)
+ *\param char* msgError: mensaje que imprime si el rango no es valido 2)
+ *\param int reintentos, cantidad de oportunidades para ingresar el dato
+ *\ Retorno: 0: si esta todo OK. -1: Si hubo un error
+ */
+int utn_getNumero(char* msg,char* msgError,int* pResultado,int reintentos,int min,int max)
+{
+	int retorno=-1;
+	int bufferInt;
+	int resultadoScanf;
+
+	if(msg!=NULL &&
+			msgError !=NULL &&
+			pResultado !=NULL &&
+			reintentos >=0 &&
+			max >= min)
+	{
+		do
+		{
+			printf("%s\n",msg);
+			__fpurge(stdin);
+			resultadoScanf= scanf("%d",&bufferInt);
+			if (resultadoScanf== 1 && bufferInt>=min && bufferInt <=max)
+				{
+					*pResultado= bufferInt;
+					retorno=0;
+					break;
+				}
+			else
+			{
+				printf("%s",msgError);
+				reintentos--;
+			}
+		}while(reintentos > 0);
+	}
+	return retorno;
+}
+/*utn_getNumeroFloat : Pide al usuario un numero
+ * pResultado: Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * min: valor minimo valido (inclusive)
+ * max: valor maximo valido (no inclusive)
+ * mensaje: El mensaje que imprime para pedir un valor
+ * mensajeError: mensaje que imprime si el rango no es valido
+ * Retorno: 0: si esta todo OK. -1: Si hubo un error
+ */
+int utn_getNumeroFloat(float* pResultado, int min, int max, char* mensaje, char* mensajeError, int reintentos)
+{
+	int retorno=-1;
+	float bufferFloat;
+	int resultadoScanf;
+
+	if(pResultado != NULL && mensaje !=NULL && mensajeError !=NULL)
+	{
+		while(reintentos > 0)
+			{
+				printf("%s\n",mensaje);
+				__fpurge(stdin);
+				resultadoScanf= scanf("%f",&bufferFloat);
+				if (resultadoScanf== 1 && bufferFloat>=min && bufferFloat <=max)
+					{
+						*pResultado= bufferFloat;
+						retorno=0;
+						break;
+					}
+				else
+				{
+					printf("%s",mensajeError);
+					reintentos--;
+				}
+			}
+	}
+	return retorno;
+}
+/*utn_getChar : Pide al usuario un numero
+ * pResultado: Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * min: valor minimo valido (inclusive)
+ * max: valor maximo valido (no inclusive)
+ * mensaje: El mensaje que imprime para pedir un valor
+ * mensajeError: mensaje que imprime si el rango no es valido
+ * Retorno: 0: si esta todo OK. -1: Si hubo un error
+ */
+
+int utn_getChar(int* pResultado, char min, char max, char* mensaje, char* mensajeError, int reintentos)
+{
+	int retorno=-1;
+	char bufferChar;
+
+	if(pResultado != NULL && mensaje !=NULL && mensajeError !=NULL)
+		{
+			while(reintentos>=0)
+				{
+					printf("%s\n",mensaje);
+					__fpurge(stdin);
+					scanf("%c",&bufferChar);
+					if (bufferChar>=min && bufferChar <=max && reintentos !=0)
+						{
+							*pResultado= bufferChar;
+							retorno=0;
+							break;
+						}
+					else
+					{
+						printf("%s",mensajeError);
+						reintentos--;
+					}
+				}
+		}
+
+
+	return retorno;
+}
+/*
+ * \brief Calcula el numero maximo del array recibido como parametro
+ * \param int pArray a ser procesado
+ * \param int CAntidadElementos, cantidad de elementos a procesar
+ */
+int calcularMaximo(int pArray[],int cantidadElementos, int* pResultado)
+{
+	int retorno = -1;
+	int maximo;
+
+	if(pArray !=NULL && cantidadElementos >0 && pResultado !=NULL)
+	{
+		for(int i=0;i<cantidadElementos;i++)
+			{
+				if(i==0 || pArray[i] > maximo)
+				{
+					maximo = pArray[i];
+				}
+			}
+		*pResultado = maximo;
+		retorno=0;
+	}
+	return retorno;
+}
+int ordenar(int array[], int len)
+{
+	int retorno=-1;
+	int indice=0;
+	int aux;
+	int flagEstaDesordenado=1; //falso, no esta ordenado
+	//8 2 3 1 9 5 8 7
+	//!=null quiere decir que la direccion de memoria no sea 0
+	if(array!=NULL && len >=1)
+	{
+		while(flagEstaDesordenado==1)//no esta ordenado itero
+			{
+				flagEstaDesordenado=0;
+				for(indice=0; indice < (len-1)   ; indice++)
+					{
+						if(array[indice] > array[indice+1])
+							{
+								//Intercambiar (swap)
+								aux=array[indice];
+								array[indice]=array[indice+1];
+								array[indice+1]=aux;
+								flagEstaDesordenado=1;
+							}
+					}
+			}
+		retorno=0;
+	}
+	return retorno;
+}
+void imprimirArray(int array[], int len)
+{
+	int i;
+
+	for(i=0; i< len; i ++)
+	{
+		//array[indice]=0;
+		printf("\nEl numero de la posicion %d es: %d", i,array[i]);
+	}
+}
+void imprimirTexto(char arrayChar[],int len)
+{
+	for(int i=0; i<len; i++)
+		{
+			printf("%c",arrayChar[i]);
+		}
+}

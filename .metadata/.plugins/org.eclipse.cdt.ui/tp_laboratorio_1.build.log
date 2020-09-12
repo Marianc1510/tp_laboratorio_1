@@ -1,0 +1,6 @@
+16:21:02 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+
+16:21:03 Build Finished. 0 errors, 0 warnings. (took 1s.57ms)
+

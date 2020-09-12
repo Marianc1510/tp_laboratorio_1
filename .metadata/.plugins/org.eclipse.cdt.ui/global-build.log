@@ -1,0 +1,237 @@
+15:05:49 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building file: ../src/utn.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utn.d" -MT"src/utn.o" -o "src/utn.o" "../src/utn.c"
+Finished building: ../src/utn.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+15:06:00 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:26:00 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+15:26:04 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:26:27 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+15:26:31 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:28:26 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:28:29 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:37:09 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:37:12 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:57:22 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+15:57:31 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+15:59:31 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/utn.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utn.d" -MT"src/utn.o" -o "src/utn.o" "../src/utn.c"
+Finished building: ../src/utn.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+15:59:33 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:03:39 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/utn.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utn.d" -MT"src/utn.o" -o "src/utn.o" "../src/utn.c"
+Finished building: ../src/utn.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:03:44 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:06:28 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:06:32 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:09:08 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/utn.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utn.d" -MT"src/utn.o" -o "src/utn.o" "../src/utn.c"
+Finished building: ../src/utn.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:09:12 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:11:29 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building file: ../src/utn.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utn.d" -MT"src/utn.o" -o "src/utn.o" "../src/utn.c"
+Finished building: ../src/utn.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+make: *** Se borra el archivo 'tp_laboratorio_1'
+make: *** [makefile:32: tp_laboratorio_1] Terminado
+Command canceled
+16:11:46 **** Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:14:55 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:15:02 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:18:07 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:18:12 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:19:22 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:19:24 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:19:57 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:19:59 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
+16:20:59 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+Building file: ../src/tp_laboratorio_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tp_laboratorio_1.d" -MT"src/tp_laboratorio_1.o" -o "src/tp_laboratorio_1.o" "../src/tp_laboratorio_1.c"
+Finished building: ../src/tp_laboratorio_1.c
+ 
+Building target: tp_laboratorio_1
+Invoking: GCC C Linker
+gcc  -o "tp_laboratorio_1"  ./src/tp_laboratorio_1.o ./src/utn.o   
+Finished building target: tp_laboratorio_1
+ 
+16:21:02 **** Incremental Build of configuration Debug for project tp_laboratorio_1 ****
+make all 
+make: No se hace nada para 'all'.
