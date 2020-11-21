@@ -12,6 +12,7 @@
 #include <limits.h>
 
 #include "utN.h"
+#include "calculos.h"
 #define TRUE 1
 #define FALSE 0
 static int emp_generarIdNuevo(void);
@@ -27,15 +28,15 @@ static int emp_generarIdNuevo(void);
  *\param int sector
  *\ Retorno: 0 (EXITO) si esta todo OK. -1(ERROR) Si hubo un error
  */
-int emp_addEmployee(Employee* pArray, int limite,int indice, int id, char* name, char* lastname,float salary,int sector)
+int emp_addEmployee(Employee* pArray, int limite, int id, char* name, char* lastname,float salary,int sector)
 {
 	int retorno = -1;
 	Employee buffer;
 	if(pArray!= NULL && limite >= 0 &&
 	   name != NULL && lastname !=NULL &&
-	   salary > 0 && id >=0 && indice >=0 && indice<limite)
+	   salary > 0 && id >=0 )
 	{
-	  if(emp_buscarLibreRef(pArray, limite, &indice)==0)
+	  if(emp_buscarLibreRef(pArray, limite, &id)==0)
 		{
 
 		if(utn_getTexto("\nINGRESE NOMBRE DEL EMPLEADO:", "\nNOMBRE INCORRECTO", buffer.name, LONG_NAME, 2)==0 &&
@@ -44,8 +45,8 @@ int emp_addEmployee(Employee* pArray, int limite,int indice, int id, char* name,
 			utn_getNumero("\nINGRESE SECTOR", "\nSECTOR INCORRECTO", &buffer.sector, 2, MIN_SEC, MAX_SEC)==0)
 				{
 					buffer.id= emp_generarIdNuevo();
-					pArray[indice]= buffer;
-					pArray[indice].isEmpty= FALSE;
+					pArray[id]= buffer;
+					pArray[id].isEmpty= FALSE;
 					retorno=0;
 				}
 		}
@@ -117,17 +118,19 @@ int emp_removeEmployee(Employee* pArray, int limite, int id)
 	int modificar;
 	if(pArray !=NULL && limite >=0)
 	{
-		if(utn_getNumero("\nINGRESE ID A ELIMINAR", "\nERROR", &modificar, 1,1,LIM_EMP)==0)
+		emp_printEmployees(pArray, limite);
+		if(utn_getNumero("\nINGRESE ID A ELIMINAR", "\nERROR", &modificar, 1,0,limite)==0)
 		{
-
-			for(i=0; i < limite; i++)
+			id= modificar;
+			for(i=0; i <= limite; i++)
 			{
-				id= modificar;
-				if(emp_findEmployeeById(pArray, limite,id)==0)
+				if(emp_findEmployeeById(pArray, limite, id)==0)
 				 {
 							pArray[i].isEmpty = TRUE;
 							retorno=0;
+							break;
 				 }
+				i++;
 			}
 		}
 	}
@@ -142,10 +145,10 @@ int emp_modificaEmployee(Employee* pArray, int limite)
 	Employee buffer;
 	if(pArray !=NULL && limite >= 0)
 	{
-
-		if(utn_getNumero("\nINGRESE ID A MODIFICAR", "\nERROR", &modificar, 1,1,limite)==0)
+		emp_printEmployees(pArray, limite);
+		if(utn_getNumero("\nINGRESE ID A MODIFICAR", "\nERROR", &modificar,1,0,limite)==0)
 		{
-			for(i=0; i < limite; i++)
+			for(i=0; i <= limite; i++)
 			{
 				idBuscado= modificar;
 				if(emp_findEmployeeById(pArray, limite,idBuscado)==0)
@@ -162,8 +165,9 @@ int emp_modificaEmployee(Employee* pArray, int limite)
 											retorno=0;
 											break;
 										}
-				 }
 
+				 }
+				i++;
 			}
 		}
 	}
@@ -259,7 +263,7 @@ int emp_findEmployeeById(Employee* pArray, int limite, int idBuscar)
 	}
 	return retorno;
 }
-int emp_newEmployees(Employee* pArray, int limite,int indice)
+int emp_newEmployees(Employee* pArray, int limite)
 {
 	int retorno = -1;
 	int i;
@@ -267,18 +271,70 @@ int emp_newEmployees(Employee* pArray, int limite,int indice)
 	{
 		for(i=0; i <limite; i++)
 		{
-			if(emp_addEmployee(pArray,limite, indice,pArray[i].id,pArray[i].name,pArray[i].lastname,pArray[i].salary,pArray[i].sector)==0)
+			if(emp_addEmployee(pArray,limite,pArray[i].id,pArray[i].name,pArray[i].lastname,pArray[i].salary,pArray[i].sector)==0)
 				{
-
-					printf("\nCarga exitosa");
 					retorno=0;
+					printf("\n--------------\n"
+							" Carga exitosa\n"
+							"---------------\n");
 					break;
 				}
-			else
-			{
-				printf("\nNO SE PUDO CARGAR");
-			}
+			i++;
 		}
+	}
+	return retorno;
+}
+int emp_printUnSoloEmployee(Employee* pArray, int limite, int id)
+{
+	int retorno=-1;
+	if(pArray !=NULL && limite >=0 && id>=0)
+	{
+		printf("\n----------------------------------------------------------"
+			   "\n ID   | NOMBRE    | APELLIDO    | SALARIO    | SECTOR     "
+			   "\n----------------------------------------------------------");
+		for(int i=0; i< limite; i ++)
+		{
+			if(pArray[i].id == id)
+			{
+				printf("\n %d    -%s     -%s      -%2.f     -%d  \n", pArray[i].id,pArray[i].name,pArray[i].lastname,pArray[i].salary,pArray[i].sector);
+			}
+			retorno=0;
+			break;
+		}
+	}
+	return retorno;
+}
+int emp_informes(Employee* pArray, int limite)
+{
+	int retorno=-1;
+	int opcion2;
+	int orden=1;
+	//Employee buffer;
+	if(pArray !=NULL && limite>=0)
+	{
+		if(utn_getNumero("Ingrese opcion:\n"
+						"\n1)Listado de los empleados ordenados alfabeticamente y sector\n"
+						"2)Total y promedio de los salarios.Y cuantos empleados superan el salario promedio."
+						"3)Salir\n",
+						"opcion invalida\n", &opcion2, 1, 1, 3)==0)
+			{
+
+				do{
+					switch(opcion2)
+					{
+					case 1:
+						if(emp_sortEmployees(pArray, limite, orden)==0)
+						{
+							printf("\nSe ordeno exitosamente\n");
+							emp_printEmployees(pArray, limite);
+						}
+						break;
+					case 2:
+						//if(contadorArray(pArray,limite,&buffer.salary)==0)
+						break;
+					}
+				}while(opcion2 <=2);
+			}
 	}
 	return retorno;
 }

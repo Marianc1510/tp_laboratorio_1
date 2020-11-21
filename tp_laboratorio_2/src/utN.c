@@ -22,8 +22,8 @@ static int getString(char* cadena, int limite);
 static int esSoloCaracter(char* pResultado);
 static int getEmail(char* cadena, int limite);
 static int esEmail(char* cadena, int limite);
-static int esNumeroAdicional(char* cadena);
-static int getNumeroAdicional(int* pResultado);
+static int esSoloCuityTelefono(char* cadena);
+static int getNumeroCuityTelefono(char* pResultado, int limite);
 
 /*
  *\brief myGets: lee de stdin hasta que encuentra un '\n' o hasta que haya copiado en cadena un
@@ -59,8 +59,8 @@ static int getInt(int* pResultado)
     {
     	if(myGets(buffer,sizeof(buffer))==0 && esNumerica(buffer))
     	{
-			retorno  = 0;
 			*pResultado = atoi(buffer);
+			retorno  = 0;
     	}
     }
     return retorno;
@@ -85,16 +85,16 @@ static int getFloat(float* pResultado)
 	}
 	return retorno;
 }
-static int getNumeroAdicional(int* pResultado)
+static int getNumeroCuityTelefono(char* pResultado, int limite)
 {
 	int retorno = -1;
 	char buffer[4096];
-	if(pResultado != NULL)
+	if(pResultado != NULL && limite >0)
 	{
-		if(myGets(buffer,sizeof(buffer)) == 0 && esNumeroAdicional(buffer))
+		if(myGets(buffer,limite) == 0 && esSoloCuityTelefono(buffer))
 		{
 			retorno = 0;
-			*pResultado = atoi(buffer);
+			strcpy(pResultado,buffer);
 		}
 	}
 	return retorno;
@@ -282,11 +282,11 @@ static int esEmail(char* cadena, int limite)
 }
 /*
  *\brief esNumeroAdicional: verifica si la cadena ingresa es numerica con caracteres adicionales
- *\							para diferentes funciones como telefono, dni o cuit
+ *\							para diferentes funciones como telefono o cuit
  *\param char* cadena, cadena de caracteres a ser analizada
  *\return retorna 0 (EXITO) si se obtiene un numero entero y -1 (ERROR) si no
  */
-static int esNumeroAdicional(char* cadena)
+static int esSoloCuityTelefono(char* cadena)
 {
 	int i =0;
 	int retorno = -1;
@@ -462,7 +462,7 @@ int utn_getNumeroConSigno(char* mensaje, char* mensajeError,int* pResultado,int 
  * Retorno: 0: si esta todo OK. -1: Si hubo un error
  */
 int utn_getTexto(char* mensaje, char* mensajeError,char* pResultado,int limite,int reintentos)
-{	int retorno = 0;
+{	int retorno = -1;
 	char buffer[4096];
 	if(mensaje != NULL && mensajeError !=NULL && pResultado != NULL && limite >0)
 	{
@@ -516,18 +516,18 @@ int utn_getEmail(char* mensaje, char* mensajeError,char* pResultado,int limite,i
 	}
 	return retorno;
 }
-int utn_getTelefono(char* mensaje, char* mensajeError,int* pResultado,int reintentos,int min, int max)
+int utn_getCuit(char* mensaje, char* mensajeError,char* pResultado,int reintentos,int limite)
 {
 	int retorno = -1;
-	int bufferInt;
-	if(pResultado != NULL && mensaje !=NULL && mensajeError !=NULL)
+	char buffer[14];
+	if(pResultado != NULL && mensaje !=NULL && mensajeError !=NULL && limite >0)
 		{
 			while(reintentos > 0)
 				{
 					printf("%s\n",mensaje);
-					if (getNumeroAdicional(&bufferInt)==0 && bufferInt>=min && bufferInt <=max)
+					if (getNumeroCuityTelefono(buffer,sizeof(buffer))==0)
 						{
-							*pResultado= bufferInt;
+							strncpy(pResultado,buffer,limite);
 							retorno=0;
 							break;
 						}
@@ -540,6 +540,7 @@ int utn_getTelefono(char* mensaje, char* mensajeError,int* pResultado,int reinte
 		}
 		return retorno;
 }
+
 void imprimirTexto(char arrayChar[],int len)
 {
 	for(int i=0; i<len; i++)

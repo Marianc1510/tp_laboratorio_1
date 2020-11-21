@@ -14,85 +14,83 @@
 #include "employee.h"
 
 int main(void) {
+	Employee arrayEmpl[LIM_EMP];
 	int opcion;
-	int indice;
-	int orden;
-	//int contador=0;
-	//int acumuladorSalario=0;
-	//float promedioSalario;
-	Employee pArrayEmployees[LIM_EMP];
-	indice=emp_initEmployees(pArrayEmployees, LIM_EMP);
-	if(indice==0)
+	int flagAlta=0;
+	int i=0;
+	int bufferId;
+
+	if(emp_initEmployees(arrayEmpl, LIM_EMP)==0)
 	{
 		do{
-			if(utn_getNumero("\nMenu carga de Empleados \n1)ALTAS \n2)MODIFICAR \n3)BAJA \n4)INFORMAR\n",
-							 "Dato Incorrecto\n", &opcion, 2, 1, 4)==0)
+			if(utn_getNumero("\n*****MENU DE EMPLEADOS*****"
+					        "\n1-ALTA"
+							"\n2-MODIFICACION"
+							"\n3-BAJA"
+							"\n4-INFORMES",
+							"\nOPCION INVALIDA",&opcion, 2, 1, 4)==0)
 			{
 				switch(opcion)
 				{
-				 case 1:
-					 if(emp_buscarLibreRef(pArrayEmployees, LIM_EMP, &indice)==0)
-					 {
-						 emp_newEmployees(pArrayEmployees, LIM_EMP,indice);
-					 }
-					 break;
-				 case 2:
-					 if(emp_printEmployees(pArrayEmployees, LIM_EMP)!=-1)
-					 {
-						 if(emp_modificaEmployee(pArrayEmployees, LIM_EMP)==0)
-						 {
-							 printf("\nModificacion EXITOSA");
-						 }
-						 else
-						 {
-							 printf("\nID incorrecto");
-						 }
-					 }
-					 else
-					 {
-						 printf("\nNO SE PUEDE MODIFICAR SIN DATOS CARGADOS");
-					 }
-					 break;
-				 case 3:
-					 if(emp_printEmployees(pArrayEmployees, LIM_EMP)!=-1)
-					 {
-						 if(emp_removeEmployee(pArrayEmployees, LIM_EMP, indice)==0)
-						 {
-							 printf("\nEL EMPLEADO HA SIDO ELIMINADO");
-						 }
-						 else{
-							 printf("\nNO SE PUDO ELIMINAR");
-						 }
-					 }
-					 else
-					 {
-						 printf("\nNO HAY EMPLEADOS REGISTRADOS");
-					 }
-					 break;
-				 case 4:
-					 if(indice!=1)
-					 {
-						 if(emp_sortEmployees(pArrayEmployees, LIM_EMP, orden)==0)
-						 {
-							 printf("\nSe ordeno correctamente");
-							 emp_printEmployees(pArrayEmployees, LIM_EMP);
-						 }
-						 else
-						 {
-							 printf("\nNO SE PUDO ORDENAR");
-						 }
+				case 1:
+					if(emp_newEmployees(arrayEmpl, LIM_EMP)!=0)
+					{
+						printf("\nNo se pudo realizar la carga\n");
+					}
+					else
+					{
+						flagAlta=1;
+						i++;
+					}
+					break;
+				case 2:
+					if(flagAlta !=1 )
+					{
+						printf("\n----------------------------------------\n"
+								"NO HAY EMPLEADOS CARGADOS PARA MODIFICAR\n"
+								"-----------------------------------------\n");
+					}
+					else if(emp_modificaEmployee(arrayEmpl,LIM_EMP)!=-1)
+						{
+							printf("\n--------------------\n"
+									"MODIFICACION EXITOSA\n"
+									"---------------------\n");
+							emp_printEmployees(arrayEmpl, LIM_EMP);
+						}
+					break;
+				case 3:
+					if(flagAlta !=1)
+					{
+						printf("\n-------------------------------------------\n"
+								"NO HAY EMPLEADOS CARGADOS PARA DAR UNA BAJA\n"
+								"--------------------------------------------\n");
+					}
+					else if(emp_removeEmployee(arrayEmpl,LIM_EMP,bufferId)==0)
+					{
+						printf("\n--------------------\n"
+								"    BAJA  EXITOSA    \n"
+								"---------------------\n");
+						emp_printEmployees(arrayEmpl, LIM_EMP);
+					}
+					break;
+				case 4:
+					if(flagAlta !=1)
+					{
+						printf("\n----------------------------------------\n"
+								"      NO CARGA REALIZADA DE EMPLEADOS      \n"
+								"-----------------------------------------\n");
 
-
-					 }
-					 else
-					 {
-						 printf("\nNO HAY EMPLEADOS CARGADOS");
-					 }
-
+					}
+					else {
+						 emp_informes(arrayEmpl, LIM_EMP);
+					}
+					break;
 				}
 			}
-		}while(opcion<4);
+			}while(opcion <= 4);
 	}
+
+
 
 	return EXIT_SUCCESS;
 }

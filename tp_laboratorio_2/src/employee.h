@@ -27,13 +27,16 @@ typedef struct
 	int id;
 }Employee;
 
-int emp_addEmployee(Employee* pArray, int limite,int indice,int id, char* name, char* lastname,float salary,int sector);
+int emp_addEmployee(Employee* pArray, int limite,int id, char* name, char* lastname,float salary,int sector);
 int emp_initEmployees(Employee* pArray, int limite);
 int emp_printEmployees(Employee* pArray, int limite);
 int emp_removeEmployee(Employee* pArray, int limite, int id);
 int emp_sortEmployees(Employee* pArray, int limite, int orden);
 int emp_buscarLibreRef(Employee* pArray, int limite, int* pIndice);
 int emp_findEmployeeById(Employee* pArray, int limite, int idBuscar);
-int emp_newEmployees(Employee* pArray, int limite, int indice);
+int emp_newEmployees(Employee* pArray, int limite);
 int emp_modificaEmployee(Employee* pArray, int limite);
+int emp_printUnSoloEmployee(Employee* pArray, int limite, int id);
+int emp_informes(Employee* pArray, int limite);
+//int emp_addEmployeeForzada(Employee* pArray, int limite,int id, char* name, char* apellido,float salary, int sector, int posicion);
 #endif /* EMPLOYEE_H_ */

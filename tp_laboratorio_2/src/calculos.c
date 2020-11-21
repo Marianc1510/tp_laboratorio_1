@@ -8,7 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#include "employee.h"
+
+#include "calculos.h"
 #include "utN.h"
 
 /* \brief operandoSuma : Esta funcion se le pasan dos valores float por parametros y el resultado de su suma se alojara en el puntero pResultado para
@@ -118,6 +119,46 @@ int operandoFactoreo(float operando, float* pResultado)
 		}
 		*pResultado=(float)auxNumero;
 		retorno=0;
+	}
+	return retorno;
+}
+int contadorArrayChar(char array[], char* pvalorContado) //int numero otro parametro para que quede mas generico y poder reutilizarlo
+{
+	int retorno =-1;
+	int i = 0;
+	int contador=0;
+	if(array !=NULL && pvalorContado != NULL)
+	{
+		//for(i=0; i< len; i ++)
+			while(array[i] !='\0')
+			{
+				if(array[i]=='e')
+				{
+					contador++;
+				}
+				i++;
+			}
+		*pvalorContado = contador;
+		retorno = 0;
+	}
+	return retorno;
+}
+int contadorArray(int array[], int len, int* pvalorContado) //int numero otro parametro para que quede mas generico y poder reutilizarlo
+{
+	int retorno =-1;
+	int i;
+	int contador = 0;
+	if(array != NULL && len > 0 && pvalorContado != NULL)
+	{
+		for(i=0; i< len; i ++)
+			{
+				if(array[i] == pvalorContado)
+				{
+					contador++;
+				}
+			}
+		*pvalorContado = contador;
+		retorno = 0;
 	}
 	return retorno;
 }
